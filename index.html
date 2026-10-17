@@ -3,80 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هورتاج | ورود</title>
+    <title>هورتاج | اکسسوری لوکس موبایل</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
     <style>
-        :root { --gold: #C8A96A; --dark: #050508; }
+        :root {
+            --gold: #C8A96A;
+            --dark: #060608; /* مشکی عمیق و مخملی */
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
-        body { background-color: var(--dark); overflow: hidden; height: 100vh; display: flex; justify-content: center; align-items: center; color: #fff; }
 
-        /* پس‌زمینه تکنولوژی */
-        .tech-bg {
-            position: absolute; inset: 0;
-            background-image: linear-gradient(rgba(200, 169, 106, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 169, 106, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px; z-index: 1; animation: gridMove 10s linear infinite;
+        body {
+            background-color: var(--dark);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
         }
-        @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 0 30px; } }
 
-        /* نور طلایی */
-        .glow-light {
-            position: absolute; width: 350px; height: 350px;
-            background: radial-gradient(circle, rgba(200,169,106,0.25) 0%, transparent 60%);
-            border-radius: 50%; z-index: 2; animation: pulse 3s infinite alternate;
+        /* نور طلایی بسیار نرم در پس‌زمینه */
+        .ambient-light {
+            position: absolute;
+            width: 60vw;
+            height: 60vw;
+            max-width: 500px;
+            max-height: 500px;
+            background: radial-gradient(circle, rgba(200, 169, 106, 0.15) 0%, transparent 60%);
+            border-radius: 50%;
+            animation: breathe 4s infinite alternate ease-in-out;
+            z-index: 1;
         }
-        @keyframes pulse { 0% { transform: scale(0.8); opacity: 0.5; } 100% { transform: scale(1.1); opacity: 1; } }
 
-        /* ذرات نورانی */
-        .particle { position: absolute; width: 3px; height: 3px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 10px var(--gold); animation: floatUp 5s infinite linear; z-index: 3; }
-        @keyframes floatUp { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(-10vh) scale(1.5); opacity: 0; } }
+        @keyframes breathe {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
 
-        /* کانتینر لوگو */
-        .intro-container { position: relative; z-index: 10; text-align: center; display: flex; flex-direction: column; align-items: center; animation: revealAll 5s forwards; }
+        /* ذرات طلایی بسیار ظریف و آهسته */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--gold);
+            animation: floatUp 6s infinite linear;
+            z-index: 2;
+        }
 
-        /* حلقه چرخان */
-        .ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 220px; height: 220px; border: 2px dashed rgba(200, 169, 106, 0.4); border-radius: 50%; animation: rotateRing 8s linear infinite; }
-        .ring::before { content: ''; position: absolute; top: -5px; left: 50%; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 15px var(--gold); }
-        @keyframes rotateRing { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+        @keyframes floatUp {
+            0% { transform: translateY(50vh) scale(0); opacity: 0; }
+            30% { opacity: 0.8; }
+            70% { opacity: 0.8; }
+            100% { transform: translateY(-50vh) scale(1); opacity: 0; }
+        }
 
-        /* عکس لوگو موقت */
-        .logo-img { width: 160px; height: 160px; object-fit: contain; border-radius: 50%; filter: drop-shadow(0 0 20px rgba(200, 169, 106, 0.5)); animation: zoomIn 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; background: var(--dark); border: 2px solid var(--gold); padding: 5px; }
-        @keyframes zoomIn { 0% { transform: scale(0.3); opacity: 0; filter: blur(10px); } 100% { transform: scale(1); opacity: 1; filter: blur(0); } }
+        /* کانتینر اصلی */
+        .intro-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeOut 5s forwards;
+        }
 
-        /* متن‌ها */
-        .texts { margin-top: 30px; opacity: 0; animation: fadeInText 1s forwards 1.5s; }
-        .logo-text-fa { color: var(--gold); font-size: 36px; font-weight: 900; letter-spacing: 2px; text-shadow: 0 0 15px rgba(200,169,106,0.4); }
-        .logo-text-en { color: #fff; font-size: 12px; letter-spacing: 10px; margin-top: 10px; opacity: 0.8; }
-        .tagline { color: rgba(255,255,255,0.5); font-size: 11px; margin-top: 15px; letter-spacing: 1px; }
-        @keyframes fadeInText { to { opacity: 1; transform: translateY(0); } }
+        /* لوگوی خودت با یه افکت ظاهر شدن سینمایی */
+        .logo-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%; /* برای اینکه دور عکس گرد بشه */
+            filter: drop-shadow(0 0 25px rgba(200, 169, 106, 0.4));
+            animation: revealLogo 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            border: 2px solid rgba(200, 169, 106, 0.3);
+            padding: 5px;
+        }
 
-        /* محو شدن کل صفحه */
-        @keyframes revealAll { 0%, 85% { opacity: 1; } 100% { opacity: 0; transform: scale(1.1); } }
+        @keyframes revealLogo {
+            0% { transform: scale(0.6) translateY(20px); opacity: 0; filter: blur(10px) drop-shadow(0 0 0px rgba(200,169,106,0)); }
+            100% { transform: scale(1) translateY(0); opacity: 1; filter: blur(0) drop-shadow(0 0 25px rgba(200, 169, 106, 0.4)); }
+        }
+
+        /* متن‌ها با ظرافت */
+        .texts {
+            margin-top: 25px;
+            opacity: 0;
+            animation: slideUp 1.5s forwards 1.2s;
+        }
+
+        .logo-text-fa {
+            color: var(--gold);
+            font-size: 38px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(200,169,106,0.3);
+        }
+
+        .logo-text-en {
+            color: #fff;
+            font-size: 11px;
+            letter-spacing: 12px;
+            margin-top: 8px;
+            opacity: 0.6;
+            padding-right: 12px; /* برای تعادل حروف انگلیسی */
+        }
+
+        .tagline {
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* محو شدن نرم کل صفحه برای رفتن به سایت */
+        @keyframes fadeOut {
+            0%, 80% { opacity: 1; }
+            100% { opacity: 0; transform: scale(1.05); }
+        }
     </style>
 </head>
 <body>
 
-    <div class="tech-bg"></div>
-    <div class="glow-light"></div>
+    <div class="ambient-light"></div>
 
-    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="particle" style="left: 25%; animation-delay: 2s;"></div>
-    <div class="particle" style="left: 50%; animation-delay: 1s;"></div>
-    <div class="particle" style="left: 75%; animation-delay: 3s;"></div>
-    <div class="particle" style="left: 90%; animation-delay: 0.5s;"></div>
+    <!-- ذرات طلایی -->
+    <div class="particle" style="left: 20%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 1.5s;"></div>
+    <div class="particle" style="left: 60%; animation-delay: 0.7s;"></div>
+    <div class="particle" style="left: 80%; animation-delay: 2.5s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 3.5s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 4s;"></div>
 
     <div class="intro-container">
-        <div class="ring"></div>
-        <!-- عکس موقت برای تست -->
-        <img src="https://cdn-icons-png.flaticon.com/512/2662/2662503.png" alt="لوگوی هورتاج" class="logo-img">
+        <!-- عکس لوگوی خودت -->
+        <img src="https://private-user-images.githubusercontent.com/336703136/676793168-22a9816e-e25e-4804-bed6-7ac62eda7e9f.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTIyNTcxMTYsIm5iZiI6MTc5MjI1NjgxNiwicGF0aCI6Ii8zMzY3MDMxMzYvNjc2NzkzMTY4LTIyYTk4MTZlLWUyNWUtNDgwNC1iZWQ2LTdhYzYyZWRhN2U5Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYxMDE3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MTAxN1QxNzA2NTZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00YWRjYWRhOGRhNTU1NTE4NDYxMjhlNjAxMDNkZWQ3M2Q1ZDgwYmExOTNiNzA3ZGMwMzM5MjY2MDJkNmRiMGFlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.gYxSFzLq8WjiPJsK9gmPcSZGZXOh08ENFbeCr8r1NCc" alt="لوگوی هورتاج" class="logo-img">
         
         <div class="texts">
             <div class="logo-text-fa">هورتاج</div>
             <div class="logo-text-en">HOOR TAJ</div>
-            <div class="tagline">تجربه‌ای لوکس از تکنولوژی</div>
+            <div class="tagline">تجربه‌ای لوکس از اکسسوری موبایل</div>
         </div>
     </div>
 
     <script>
+        // بعد از ۵ ثانیه انتقال به صفحه اصلی
         setTimeout(() => {
             document.body.innerHTML = '<h1 style="color:#C8A96A; font-family:sans-serif; text-align:center; margin-top:40vh; font-size:20px;">در حال انتقال به فروشگاه...</h1>';
         }, 5000);
