@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>هورتاج | اکسسوری لوکس موبایل</title>
+    
+    <!-- فونت‌های Vazirmatn و Noto Nastaliq -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --gold: #C8A96A;
-            --dark: #060608;
+            --dark: #000000; /* مشکی مطلق */
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--dark);
@@ -21,43 +25,45 @@
             justify-content: center;
             align-items: center;
             color: #fff;
+            font-family: 'Vazirmatn', sans-serif;
         }
 
-        /* نور طلایی بسیار نرم در پس‌زمینه */
+        /* نور بسیار ملایم و مخملی در پس‌زمینه */
         .ambient-light {
             position: absolute;
-            width: 60vw;
-            height: 60vw;
-            max-width: 500px;
-            max-height: 500px;
-            background: radial-gradient(circle, rgba(200, 169, 106, 0.15) 0%, transparent 60%);
+            width: 100vw;
+            height: 100vw;
+            max-width: 600px;
+            max-height: 600px;
+            background: radial-gradient(circle, rgba(200, 169, 106, 0.08) 0%, transparent 60%);
             border-radius: 50%;
-            animation: breathe 4s infinite alternate ease-in-out;
+            animation: breathe 6s infinite alternate ease-in-out;
             z-index: 1;
         }
 
         @keyframes breathe {
-            0% { transform: scale(0.9); opacity: 0.6; }
+            0% { transform: scale(0.9); opacity: 0.5; }
             100% { transform: scale(1.1); opacity: 1; }
         }
 
-        /* ذرات طلایی */
+        /* ذرات طلایی بسیار ظریف */
         .particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
+            width: 1.5px;
+            height: 1.5px;
             background: var(--gold);
             border-radius: 50%;
-            box-shadow: 0 0 8px var(--gold);
-            animation: floatUp 6s infinite linear;
+            box-shadow: 0 0 10px var(--gold);
+            animation: floatUp 8s infinite linear;
             z-index: 2;
+            opacity: 0;
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(50vh) scale(0); opacity: 0; }
-            30% { opacity: 0.8; }
-            70% { opacity: 0.8; }
-            100% { transform: translateY(-50vh) scale(1); opacity: 0; }
+            0% { transform: translateY(40vh) scale(0); opacity: 0; }
+            30% { opacity: 0.6; }
+            70% { opacity: 0.6; }
+            100% { transform: translateY(-40vh) scale(1.5); opacity: 0; }
         }
 
         /* کانتینر اصلی */
@@ -71,81 +77,101 @@
             animation: fadeOut 6s forwards;
         }
 
-        /* عکس لوگو */
+        /* عکس لوگو (بدون قاب و کاملاً محو در پس‌زمینه) */
         .logo-img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 50%;
-            filter: drop-shadow(0 0 30px rgba(200, 169, 106, 0.6));
-            animation: revealLogo 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            border: 2px solid rgba(200, 169, 106, 0.5);
-            padding: 5px;
+            width: 280px;
+            height: auto;
+            /* این خط جادو میکنه: پس‌زمینه تیره عکس رو با مشکی سایت ترکیب میکنه */
+            mix-blend-mode: screen; 
+            filter: drop-shadow(0 0 20px rgba(200, 169, 106, 0.3));
+            animation: revealLogo 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
         }
 
         @keyframes revealLogo {
-            0% { transform: scale(0.6) translateY(20px); opacity: 0; filter: blur(10px) drop-shadow(0 0 0px rgba(200,169,106,0)); }
-            100% { transform: scale(1) translateY(0); opacity: 1; filter: blur(0) drop-shadow(0 0 30px rgba(200, 169, 106, 0.6)); }
+            0% { transform: scale(0.9) translateY(10px); opacity: 0; filter: blur(10px); }
+            100% { transform: scale(1) translateY(0); opacity: 1; filter: blur(0) drop-shadow(0 0 25px rgba(200, 169, 106, 0.4)); }
         }
 
-        /* متن‌ها - کاملا روشن و درخشان */
+        /* متن‌ها */
         .texts {
-            margin-top: 30px;
+            margin-top: 10px;
             opacity: 0;
-            animation: slideUp 1.5s forwards 1s;
+            animation: slideUp 2s forwards 1.2s;
         }
 
+        /* فونت نستعلیق برای اسم اصلی */
         .logo-text-fa {
-            color: #F5D68A;
-            font-size: 42px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            text-shadow: 0 0 25px rgba(245, 214, 138, 0.6);
+            color: var(--gold);
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.8;
+            text-shadow: 0 0 20px rgba(200,169,106,0.2);
         }
 
         .logo-text-en {
-            color: #ffffff;
-            font-size: 13px;
-            letter-spacing: 14px;
-            margin-top: 8px;
-            opacity: 1;
-            font-weight: 600;
-            padding-right: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 12px;
+            letter-spacing: 15px;
+            margin-top: 5px;
+            padding-right: 15px; /* برای تعادل */
+            text-transform: uppercase;
         }
 
         .tagline {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 13px;
             margin-top: 25px;
             letter-spacing: 1px;
             font-weight: 300;
         }
 
         @keyframes slideUp {
-            0% { opacity: 0; transform: translateY(20px); }
+            0% { opacity: 0; transform: translateY(15px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
+        /* محو شدن کل صفحه */
         @keyframes fadeOut {
             0%, 85% { opacity: 1; }
             100% { opacity: 0; transform: scale(1.05); }
         }
+
+        /* صفحه خوش‌آمدگویی بعد از انیمیشن */
+        .welcome-screen {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 20;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            animation: fadeIn 1.5s ease forwards;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .welcome-screen h1 { font-size: 24px; font-weight: 300; letter-spacing: 2px; margin-bottom: 20px; }
+        .welcome-screen h1 span { font-family: 'Noto Nastaliq Urdu', serif; font-size: 36px; color: var(--gold); }
     </style>
 </head>
 <body>
 
     <div class="ambient-light"></div>
 
+    <!-- ذرات طلایی -->
     <div class="particle" style="left: 20%; animation-delay: 0s;"></div>
-    <div class="particle" style="left: 40%; animation-delay: 1.5s;"></div>
-    <div class="particle" style="left: 60%; animation-delay: 0.7s;"></div>
-    <div class="particle" style="left: 80%; animation-delay: 2.5s;"></div>
-    <div class="particle" style="left: 30%; animation-delay: 3.5s;"></div>
+    <div class="particle" style="left: 40%; animation-delay: 2.5s;"></div>
+    <div class="particle" style="left: 60%; animation-delay: 1s;"></div>
+    <div class="particle" style="left: 80%; animation-delay: 3.5s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 5s;"></div>
     <div class="particle" style="left: 70%; animation-delay: 4s;"></div>
 
     <div class="intro-container">
-        <!-- لینک دائمی عکس خودت -->
-        <img src="https://github.com/user-attachments/assets/22a9816e-e25e-4804-bed6-7ac62eda7e9f" alt="لوگوی هورتاج" class="logo-img">
+        <!-- عکس لوگو با افکت محو شدن در پس‌زمینه -->
+        <img src="https://github.com/user-attachments/assets/22a9816e-e25e-4804-bed6-7ac62eda7e9f" alt="هورتاج" class="logo-img">
         
         <div class="texts">
             <div class="logo-text-fa">هورتاج</div>
@@ -154,9 +180,14 @@
         </div>
     </div>
 
+    <div class="welcome-screen" id="welcome">
+        <h1>به <span>هورتاج</span> خوش آمدید</h1>
+        <p style="color: rgba(255,255,255,0.5); font-size: 14px;">صفحه اصلی در حال بارگذاری است...</p>
+    </div>
+
     <script>
         setTimeout(() => {
-            document.body.innerHTML = '<h1 style="color:#F5D68A; font-family:sans-serif; text-align:center; margin-top:40vh; font-size:20px;">در حال انتقال به فروشگاه...</h1>';
+            document.getElementById('welcome').style.display = 'flex';
         }, 5000);
     </script>
 </body>
