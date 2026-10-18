@@ -8,7 +8,7 @@
     <style>
         :root {
             --gold: #C8A96A;
-            --dark: #060608; /* مشکی عمیق و مخملی */
+            --dark: #060608;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Vazirmatn', sans-serif; }
@@ -41,7 +41,7 @@
             100% { transform: scale(1.1); opacity: 1; }
         }
 
-        /* ذرات طلایی بسیار ظریف و آهسته */
+        /* ذرات طلایی */
         .particle {
             position: absolute;
             width: 2px;
@@ -68,66 +68,66 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: fadeOut 5s forwards;
+            animation: fadeOut 6s forwards;
         }
 
-        /* لوگوی خودت با یه افکت ظاهر شدن سینمایی */
+        /* عکس لوگو */
         .logo-img {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 50%; /* برای اینکه دور عکس گرد بشه */
-            filter: drop-shadow(0 0 25px rgba(200, 169, 106, 0.4));
+            border-radius: 50%;
+            filter: drop-shadow(0 0 30px rgba(200, 169, 106, 0.6));
             animation: revealLogo 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            border: 2px solid rgba(200, 169, 106, 0.3);
+            border: 2px solid rgba(200, 169, 106, 0.5);
             padding: 5px;
         }
 
         @keyframes revealLogo {
             0% { transform: scale(0.6) translateY(20px); opacity: 0; filter: blur(10px) drop-shadow(0 0 0px rgba(200,169,106,0)); }
-            100% { transform: scale(1) translateY(0); opacity: 1; filter: blur(0) drop-shadow(0 0 25px rgba(200, 169, 106, 0.4)); }
+            100% { transform: scale(1) translateY(0); opacity: 1; filter: blur(0) drop-shadow(0 0 30px rgba(200, 169, 106, 0.6)); }
         }
 
-        /* متن‌ها با ظرافت */
+        /* متن‌ها - کاملا روشن و درخشان */
         .texts {
-            margin-top: 25px;
+            margin-top: 30px;
             opacity: 0;
-            animation: slideUp 1.5s forwards 1.2s;
+            animation: slideUp 1.5s forwards 1s;
         }
 
         .logo-text-fa {
-            color: var(--gold);
-            font-size: 38px;
+            color: #F5D68A;
+            font-size: 42px;
             font-weight: 900;
             letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(200,169,106,0.3);
+            text-shadow: 0 0 25px rgba(245, 214, 138, 0.6);
         }
 
         .logo-text-en {
-            color: #fff;
-            font-size: 11px;
-            letter-spacing: 12px;
+            color: #ffffff;
+            font-size: 13px;
+            letter-spacing: 14px;
             margin-top: 8px;
-            opacity: 0.6;
-            padding-right: 12px; /* برای تعادل حروف انگلیسی */
+            opacity: 1;
+            font-weight: 600;
+            padding-right: 14px;
         }
 
         .tagline {
-            color: rgba(255,255,255,0.4);
-            font-size: 12px;
-            margin-top: 20px;
-            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-top: 25px;
+            letter-spacing: 1px;
             font-weight: 300;
         }
 
         @keyframes slideUp {
-            0% { opacity: 0; transform: translateY(15px); }
+            0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* محو شدن نرم کل صفحه برای رفتن به سایت */
         @keyframes fadeOut {
-            0%, 80% { opacity: 1; }
+            0%, 85% { opacity: 1; }
             100% { opacity: 0; transform: scale(1.05); }
         }
     </style>
@@ -136,7 +136,6 @@
 
     <div class="ambient-light"></div>
 
-    <!-- ذرات طلایی -->
     <div class="particle" style="left: 20%; animation-delay: 0s;"></div>
     <div class="particle" style="left: 40%; animation-delay: 1.5s;"></div>
     <div class="particle" style="left: 60%; animation-delay: 0.7s;"></div>
@@ -145,8 +144,8 @@
     <div class="particle" style="left: 70%; animation-delay: 4s;"></div>
 
     <div class="intro-container">
-        <!-- عکس لوگوی خودت -->
-        <img src="https://private-user-images.githubusercontent.com/336703136/676793168-22a9816e-e25e-4804-bed6-7ac62eda7e9f.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3OTIyNTcxMTYsIm5iZiI6MTc5MjI1NjgxNiwicGF0aCI6Ii8zMzY3MDMxMzYvNjc2NzkzMTY4LTIyYTk4MTZlLWUyNWUtNDgwNC1iZWQ2LTdhYzYyZWRhN2U5Zi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYxMDE3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MTAxN1QxNzA2NTZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00YWRjYWRhOGRhNTU1NTE4NDYxMjhlNjAxMDNkZWQ3M2Q1ZDgwYmExOTNiNzA3ZGMwMzM5MjY2MDJkNmRiMGFlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZwbmcifQ.gYxSFzLq8WjiPJsK9gmPcSZGZXOh08ENFbeCr8r1NCc" alt="لوگوی هورتاج" class="logo-img">
+        <!-- لینک دائمی عکس خودت -->
+        <img src="https://github.com/user-attachments/assets/22a9816e-e25e-4804-bed6-7ac62eda7e9f" alt="لوگوی هورتاج" class="logo-img">
         
         <div class="texts">
             <div class="logo-text-fa">هورتاج</div>
@@ -156,9 +155,8 @@
     </div>
 
     <script>
-        // بعد از ۵ ثانیه انتقال به صفحه اصلی
         setTimeout(() => {
-            document.body.innerHTML = '<h1 style="color:#C8A96A; font-family:sans-serif; text-align:center; margin-top:40vh; font-size:20px;">در حال انتقال به فروشگاه...</h1>';
+            document.body.innerHTML = '<h1 style="color:#F5D68A; font-family:sans-serif; text-align:center; margin-top:40vh; font-size:20px;">در حال انتقال به فروشگاه...</h1>';
         }, 5000);
     </script>
 </body>
